@@ -11,4 +11,4 @@ class AddFieldAmountText(models.Model):
 	@api.one
 	@api.depends('amount_total')
 	def _get_amount_to_text(self):
-		self.amount_to_text = amount_to_text.get_amount_to_text(self, self.amount_total)
+		self.amount_to_text = amount_to_text.get_amount_to_text(self, self.amount_total, self.currency_id.name)
