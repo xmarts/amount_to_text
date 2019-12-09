@@ -4,7 +4,7 @@ from odoo import models, fields, api, _
 from . import amount_to_text
 
 class AddFieldAmountText(models.Model):
-	_inherit = "account.invoice"
+	_inherit = "account.move"
 
 	amount_to_text = fields.Char(compute='_get_amount_to_text', string='Monto en Texto', readonly=True, help='Amount of the invoice in letter')
 
