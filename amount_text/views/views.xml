@@ -1,7 +1,5 @@
 <odoo>
   <data>
-   
-
     <record id="view_order_form_add_time" model="ir.ui.view">
       <field name="name">Add fields time</field>
       <field name="model">account.move</field>
@@ -12,6 +10,5 @@
          </xpath>
       </field>
     </record>
-
   </data>
 </odoo>

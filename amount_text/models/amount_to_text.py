@@ -6,10 +6,6 @@
 
 
 class amount_to_text:
-    """
-    Transforma de una cantidad numerica a cantidad en letra
-    ej. 200 -> doscientos
-    """
 
     def __init__(self):
         self._n1 = (
@@ -188,7 +184,6 @@ if __name__ == "__main__":
     print amount_to_text(num,lFemenino)
     raw_input("Presione cualquier tecla para continuar....")
     """
-    # print amount_to_text().amount_to_text(5001)
     letra = amount_to_text().amount_to_text_cheque(1500.25, 'pesos', 'M. N.')
     letra = amount_to_text().amount_to_text(1500.25)
     print(letra.upper())
