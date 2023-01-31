@@ -36,12 +36,13 @@ class amount_to_text:
         nNumero = round(nNumero, 2)
         strCantEntera = self.amount_to_text(nNumero)
         intCantDecimal = self.extraeDecimales(nNumero)
-        str_CantDecimal = self.amount_to_text(intCantDecimal)
 
-        if intCantDecimal == "00":
+        if intCantDecimal == 0:
             strPunto = ""
+            str_CantDecimal = ""
         else:
             strPunto = "PUNTO"
+            str_CantDecimal = self.amount_to_text(intCantDecimal)
         
 
         if intCantDecimal <= 9:
