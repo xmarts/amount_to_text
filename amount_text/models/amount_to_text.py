@@ -37,21 +37,13 @@ class amount_to_text:
         strCantEntera = self.amount_to_text(nNumero)
         intCantDecimal = self.extraeDecimales(nNumero)
 
-        if intCantDecimal == 0:
-            strPunto = ""
-            str_CantDecimal = ""
-        else:
-            strPunto = "PUNTO"
-            str_CantDecimal = self.amount_to_text(intCantDecimal)
-        
-
         if intCantDecimal <= 9:
             strCantDecimal = "0%d" % (intCantDecimal)
         else:
             strCantDecimal = "%d" % (intCantDecimal)
         
         strCantDecimal += "/100"
-        return strCantEntera+' '+strPunto+' '+str_CantDecimal+' '+intermedio+' '+strCantDecimal+' '+sufijo
+        return strCantEntera+' '+intermedio+' '+strCantDecimal+' '+sufijo
 
     def extraeDecimales(self, nNumero, max_digits=2):
         """
