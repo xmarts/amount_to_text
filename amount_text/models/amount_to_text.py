@@ -36,19 +36,32 @@ class amount_to_text:
         nNumero = round(nNumero, 2)
         strCantEntera = self.amount_to_text(nNumero)
         intCantDecimal = self.extraeDecimales(nNumero)
+        str_CantDecimal = self.amount_to_text(intCantDecimal)
+
+        if intCantDecimal == 0:
+            strPunto = ""
+        else:
+            strPunto = "PUNTO"
+        
+
         if intCantDecimal <= 9:
             strCantDecimal = "0%d" % (intCantDecimal)
         else:
             strCantDecimal = "%d" % (intCantDecimal)
+        
         strCantDecimal += "/100"
-        return strCantEntera+' '+intermedio+' '+strCantDecimal+' '+sufijo
+        return strCantEntera+' '+intermedio+' '+strPunto+' '+str_CantDecimal+' '+strCantDecimal+' '+sufijo
 
     def extraeDecimales(self, nNumero, max_digits=2):
         """
         @params nNumero : Number complete whit decimals
         @params max_digits : Maximum number of decimals to take
         """
-        strDecimales = str(round(nNumero % 1, 2)).replace('0.', '')
+        #strDecimales = str(round(nNumero % 1, 2)).replace('0.', '')
+        nNumero = round(nNumero, 2)
+        par_decimal = abs(nNumero) - abs(int(nNumero))
+        par_decimal_round = round(par_decimal, 2)
+        strDecimales = str(par_decimal_round).replace('0.', '')
         strDecimales += "0"*max_digits
         strDecimales = strDecimales[0:max_digits]
         return int(strDecimales)
