@@ -5,6 +5,33 @@
 #from openerp.osv import fields, osv
 
 
+currency_dict = {
+    'MXP': 'PESOS',
+    'MXN': 'PESOS',
+    'PESOS': 'PESOS',
+    'PESOS MEXICANOS': 'PESOS',
+    'USD': 'DOLARES ESTADOUNIDENSES',
+    'PEN': 'SOLES',
+    'EUR': 'EUROS',
+    'GBP': 'LIBRAS ESTERLINAS',
+    'BRL': 'REALES',
+    'CLP': 'PESOS CHILENOS',
+    'COP': 'PESOS COLOMBIANOS',
+    'CRC': 'COLONES',
+    'NZD': 'DOLARES NUEVA ZELANDA',
+    'ARS': 'PESOS ARGENTINOS',
+    'PYG': 'GUARANIES',
+    'UYU': 'PESOS URUGUAYOS',
+    'VED': 'BOLIVARES',
+    'VES': 'BOLIVARES',
+    'BOB': 'BOLIVIANOS',
+    'CUP': 'PESOS CUBANOS',
+    'DOP': 'PESOS DOMINICANOS',
+    'GTQ': 'QUETZALES',
+    'BZD': 'DOLARES BELICEÑOS',
+    'HNL': 'LEMPIRAS'
+}
+
 class amount_to_text:
     """
     Transforma de una cantidad numerica a cantidad en letra
@@ -181,7 +208,10 @@ def get_amount_to_text(self, amount, currency=""):
         currency = 'PESOS'
     else:
         sufijo = 'M. E.'
-    # return amount_to_text(amount, lang, currency)
+
+    if currency.upper() in currency_dict:
+        currency = currency_dict[currency.upper()]
+
     amount_text = amount_to_text().amount_to_text_cheque(amount, currency, sufijo)
     amount_text = amount_text and amount_text.upper() or ''
     return amount_text
