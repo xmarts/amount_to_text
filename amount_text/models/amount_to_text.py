@@ -167,10 +167,10 @@ def get_amount_to_text(self, amount, currency=""):
     @params currency : Name of currency used in amount
     """
     if currency.upper() in ('MXP', 'MXN', 'PESOS', 'PESOS MEXICANOS'):
-        sufijo = 'M. N.'
+        sufijo = 'M.N.'
         currency = 'PESOS'
     else:
-        sufijo = 'M. E.'
+        sufijo = 'M.E.'
     # return amount_to_text(amount, lang, currency)
     amount_text = amount_to_text().amount_to_text_cheque(amount, currency, sufijo)
     amount_text = amount_text and amount_text.upper() or ''
