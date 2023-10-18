@@ -102,7 +102,7 @@ class amount_to_text:
         else:
             cRes = self._amount_to_text(nNumero, lFemenino)
         # Excepciones a considerar
-        if not lFemenino and nNumero % 10 == 1 and nNumero % 100 != 11 and nNumero > 0:
+        if not lFemenino and abs(nNumero) % 10 == 1 and abs(nNumero) % 100 != 11:
             cRes += "o"
         # cRes = cRes.upper()
         # cRes = cRes.capitalize()
@@ -219,6 +219,6 @@ if __name__ == "__main__":
     raw_input("Presione cualquier tecla para continuar....")
     """
 
-    letra = amount_to_text().amount_to_text_cheque(-9219.38, 'pesos', 'M. N.')
+    letra = amount_to_text().amount_to_text_cheque(-9211.38, 'pesos', 'M. N.')
 
     print(letra.upper())
