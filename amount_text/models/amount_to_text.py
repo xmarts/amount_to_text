@@ -1,9 +1,4 @@
 # -*- encoding: utf-8 -*-
-#
-
-#from openerp.tools.translate import _
-#from openerp.osv import fields, osv
-
 
 currency_dict = {
     'MXP': 'PESOS',
@@ -106,9 +101,8 @@ class amount_to_text:
             cRes = "cero"
         else:
             cRes = self._amount_to_text(nNumero, lFemenino)
-
         # Excepciones a considerar
-        if not lFemenino and nNumero % 10 == 1 and nNumero % 100 != 11:
+        if not lFemenino and nNumero % 10 == 1 and nNumero % 100 != 11 and nNumero > 0:
             cRes += "o"
         # cRes = cRes.upper()
         # cRes = cRes.capitalize()
@@ -216,7 +210,7 @@ def get_amount_to_text(self, amount, currency=""):
     amount_text = amount_text and amount_text.upper() or ''
     return amount_text
 
-# Crear una demo interactiva
+
 if __name__ == "__main__":
     """
     lFemenino=(raw_input("En masculino o femenino? ( [M] / F ) ") in "Ff")
@@ -224,7 +218,7 @@ if __name__ == "__main__":
     print amount_to_text(num,lFemenino)
     raw_input("Presione cualquier tecla para continuar....")
     """
-    # print amount_to_text().amount_to_text(5001)
-    letra = amount_to_text().amount_to_text_cheque(1500.25, 'pesos', 'M. N.')
-    letra = amount_to_text().amount_to_text(1500.25)
+
+    letra = amount_to_text().amount_to_text_cheque(-9219.38, 'pesos', 'M. N.')
+
     print(letra.upper())
