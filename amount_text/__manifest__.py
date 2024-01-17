@@ -10,6 +10,7 @@
     'category': 'Uncategorized',
     'version': '16.0.0.0',
     'depends': ['base', 'account'],
+    'license': 'OPL-1',
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
